@@ -29,6 +29,17 @@ end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+-- local inlayHints = {
+-- 	includeInlayParameterNameHints = "all",
+-- 	includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+-- 	includeInlayFunctionParameterTypeHints = true,
+-- 	includeInlayVariableTypeHints = true,
+-- 	includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+-- 	includeInlayPropertyDeclarationTypeHints = true,
+-- 	includeInlayFunctionLikeReturnTypeHints = true,
+-- 	includeInlayEnumMemberValueHints = true,
+-- }
+
 local signs = { Error = "✘", Warn = "", Hint = "", Info = "" }
 
 for type, icon in pairs(signs) do
@@ -49,10 +60,27 @@ mason_lspconfig.setup_handlers({
 			capabilities = capabilities,
 		})
 	end,
-	["tsserver"] = function()
-		nvim_lsp["tsserver"].setup({
+	["ts_ls"] = function()
+		nvim_lsp["ts_ls"].setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
+			-- settings = {
+			-- 	preferences = {
+			-- 		semicolons = "remove",
+			-- 		quotePreference = "double",
+			-- 		includeCompletionsWithSnippetText = true,
+			-- 		generateReturnInDocTemplate = true,
+			-- 		includeInlayParameterNameHints = "all",
+			-- 		includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+			-- 		includeInlayFunctionParameterTypeHints = true,
+			-- 		includeInlayVariableTypeHints = true,
+			-- 		includeInlayPropertyDeclarationTypeHints = true,
+			-- 		includeInlayFunctionLikeReturnTypeHints = true,
+			-- 		includeInlayEnumMemberValueHints = true,
+			-- 	},
+			-- },
+			-- typescript = { inlayHints = inlayHints },
+			-- javascript = { inlayHints = inlayHints },
 		})
 	end,
 	["cssls"] = function()

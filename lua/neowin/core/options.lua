@@ -2,7 +2,10 @@ vim.scriptencoding = "utf-8"
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 
-vim.opt.wrap = false
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.textwidth = 60
+vim.opt.formatoptions:append("t")
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.showmode = true
@@ -16,7 +19,7 @@ vim.opt.scrolloff = 4
 
 vim.opt.mouse = "a"
 vim.opt.swapfile = false
-vim.opt.list = true
+vim.opt.list = false
 
 vim.opt.expandtab = true
 vim.opt.smarttab = true

@@ -17,7 +17,7 @@ masonlsp.setup({
 		"eslint",
 		"html",
 		"jsonls",
-		"tsserver",
+		"ts_ls",
 		"tailwindcss",
 	},
 })
