@@ -22,7 +22,7 @@ return {
 
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-		event = "BufRead",
+		event = "VeryLazy",
 		branch = "v3.x",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
@@ -124,10 +124,46 @@ return {
 	},
 
 	{
+		"nvim-telescope/telescope.nvim",
+		branch = "0.1.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				build = "make",
+				cond = function()
+					return vim.fn.executable("make") == 1
+				end,
+			},
+			"nvim-telescope/telescope-ui-select.nvim",
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = function()
+			require("neowin.configs.ui.telescope")
+		end,
+	},
+
+	{
 		"williamboman/mason.nvim",
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			{
+				"j-hui/fidget.nvim",
+				tag = "v1.4.0",
+				opts = {
+					progress = {
+						display = {
+							done_icon = "✓",
+						},
+					},
+					notification = {
+						window = {
+							winblend = 0,
+						},
+					},
+				},
+			},
 		},
 		lazy = false,
 		config = function()

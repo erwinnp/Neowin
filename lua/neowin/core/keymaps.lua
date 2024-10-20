@@ -46,3 +46,8 @@ nmap("<C-n>", ":Neotree filesystem reveal right toggle<CR>")
 nmap("<leader>x", "<Cmd>BufferClose<CR>")
 nmap("<S-tab>", "<Cmd>BufferPrevious<CR>")
 nmap("<Tab>", "<Cmd>BufferNext<CR>")
+
+-- Diagnostics
+nmap("<C-j>", function()
+	vim.diagnostic.goto_next()
+end)
