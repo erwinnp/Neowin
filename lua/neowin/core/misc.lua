@@ -4,8 +4,8 @@ vim.diagnostic.config({
   virtual_text = {
     prefix = "●",
     format = function(diagnostic)
-      local code = diagnostic.code and string.format("[%s]", diagnostic.code) or ""
-      return string.format("%s %s", code, diagnostic.message)
+      local source = diagnostic.source and string.format("[%s]", diagnostic.source) or ""
+      return string.format("%s %s", source, diagnostic.message)
     end,
   },
   underline = false,
