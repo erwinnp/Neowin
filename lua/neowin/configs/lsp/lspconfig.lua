@@ -77,6 +77,36 @@ mason_lspconfig.setup_handlers({
     nvim_lsp["ts_ls"].setup({
       on_attach = on_attach,
       capabilities = capabilities,
+      settings = {
+        typescript = {
+          inlayHints = {
+            includeInlayParameterNameHints = "literal",
+            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayVariableTypeHints = false,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayEnumMemberValueHints = true,
+          },
+          format = {
+            insertSpaceAfterOpeningAndBeforeClosingEmptyBraces = false,
+          },
+        },
+        javascript = {
+          inlayHints = {
+            includeInlayParameterNameHints = "all",
+            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayVariableTypeHints = true,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayEnumMemberValueHints = true,
+          },
+          format = {
+            insertSpaceAfterOpeningAndBeforeClosingEmptyBraces = false,
+          },
+        },
+      },
     })
   end,
   ["cssls"] = function()
