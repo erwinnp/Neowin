@@ -22,13 +22,6 @@ conform.setup({
   },
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function(args)
-    require("conform").format({ bufnr = args.buf })
-  end,
-})
-
 vim.keymap.set({ "n", "v" }, "<leader>fm", function()
   conform.format({
     lsp_fallback = true,
