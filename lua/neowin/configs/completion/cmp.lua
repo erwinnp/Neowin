@@ -12,6 +12,10 @@ hl(0, "CmpCursorLine", { bg = "#4c566a" })          -- Cursor line in completion
 hl(0, "CmpDoc", { fg = "#d8dee9", bg = "#2e3440" }) -- Documentation window
 hl(0, "FloatBorder", { fg = "#3b4252" })            -- Border color
 
+local window = cmp.config.window.bordered({
+  border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+})
+
 -- icons in snippet
 local icons = {
   Class = "Class ",
@@ -71,9 +75,14 @@ cmp.setup({
     -- end,
   },
 
+  -- window = {
+  --   completion = cmp.config.window.bordered(),
+  --   documentation = cmp.config.window.bordered(),
+  -- },
+
   window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
+    completion = window,
+    documentation = window,
   },
 
   sources = {
